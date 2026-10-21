@@ -59,6 +59,6 @@ Settlement is an explicit finance stage. Eligibility depends on completed preced
 
 ## Technology boundary
 
-The implementation uses TypeScript, Node.js, Next.js, React, HeroUI, ECharts, SQL migrations, SQLite for local transactional operation, and Supabase / PostgreSQL integration boundaries.
+The implementation uses TypeScript, Node.js, Next.js, React, HeroUI, ECharts, SQL migrations, SQLite for local transactional operation, and Supabase / PostgreSQL persistence path.
  
 © 2026 Saleh Mukhrish. All rights reserved.
