@@ -47,7 +47,13 @@ The implementation includes validation coverage for:
 
 ## A Look Inside
 
-Track finance operations through the system’s overview, journal, and settlement surfaces.
+| Finance Overview | Journal & Ledger |
+|---|---|
+| ![Finance overview](assets/finance-overview.png)<br>Track finance stages, exceptions, and operational status. | ![Journal and ledger](assets/journal-ledger.png)<br>Review balanced accounting records with linked ledger traceability. |
+
+| Settlement & Reconciliation |
+|---|
+| ![Settlement and reconciliation](assets/settlement-reconciliation.png)<br>Review settlement readiness, payout state, and reconciliation outcomes. |
 
 ## Technology
 
