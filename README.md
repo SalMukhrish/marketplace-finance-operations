@@ -47,13 +47,13 @@ The implementation includes validation coverage for:
 
 ## A Look Inside
 
-| Finance Overview | Journal & Ledger |
+| Finance Overview | Invoice Lifecycle |
 |---|---|
-| ![Finance overview](assets/finance-overview.png)<br>Track finance stages, exceptions, and operational status. | ![Journal and ledger](assets/journal-ledger.png)<br>Review balanced accounting records with linked ledger traceability. |
+| ![Finance overview](assets/finance-overview.png)<br>Track finance stages, exceptions, and operational status. | ![Invoice lifecycle](assets/invoice-lifecycle.png)<br>Follow a transaction from invoice and collection through merchant due. |
 
-| Settlement & Reconciliation |
-|---|
-| ![Settlement and reconciliation](assets/settlement-reconciliation.png)<br>Review settlement readiness, payout state, and reconciliation outcomes. |
+| Journal & Ledger | Settlement & Reconciliation |
+|---|---|
+| ![Journal and ledger](assets/journal-ledger.png)<br>Review balanced accounting records with linked ledger traceability. | ![Settlement and reconciliation](assets/settlement-reconciliation.png)<br>Review settlement readiness, payout state, and reconciliation outcomes. |
 
 ## Technology
 
@@ -61,8 +61,9 @@ The implementation includes validation coverage for:
 - Node.js
 - Next.js
 - React
+- PostgreSQL
+- Supabase
 - SQLite for local transactional operation
-- Supabase / PostgreSQL persistence path
 - SQL migrations
 - HeroUI
 - ECharts
