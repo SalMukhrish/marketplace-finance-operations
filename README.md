@@ -55,6 +55,12 @@ The implementation includes validation coverage for:
 |---|---|
 | ![Journal and ledger](assets/journal-ledger.png)<br>Review balanced accounting records with linked ledger traceability. | ![Settlement and reconciliation](assets/settlement-reconciliation.png)<br>Review settlement readiness, payout state, and reconciliation outcomes. |
 
+## Supplemental Finance Evidence
+
+| Invoice Accounting Progress | Finance Operations Summary |
+|---|---|
+| ![Invoice accounting progress](assets/invoice-accounting-inv-000439.jpg)<br>Follow a posted invoice through a ready capture stage with journal detail and operating context. | ![Finance operations summary](assets/finance-operations-summary.jpg)<br>Review invoice coverage and finance progression across capture, reconciliation, merchant due, settlement, and refunds. |
+
 ## Technology
 
 - TypeScript
@@ -69,3 +75,4 @@ The implementation includes validation coverage for:
 - ECharts
 
 © 2026 Saleh Mukhrish. All rights reserved.
+
