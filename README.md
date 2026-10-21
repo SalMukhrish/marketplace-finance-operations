@@ -8,7 +8,7 @@ The system connects operational transaction records with finance-specific stages
 
 ## Transaction Lifecycle
 
-Order → Invoice → Collection → Merchant Due → Fees & VAT → Refunds → Settlement → Reconciliation
+Order → Invoice → Collection → Bank Reconciliation → Merchant Due → Fees / Commission / VAT → Refunds & Reversals → Settlement → Reconciliation & Reporting
 
 The lifecycle is represented through explicit finance stages. Each stage has entry conditions, accounting effects, and review outcomes. See [the lifecycle model](docs/transaction-lifecycle.md).
 
@@ -45,11 +45,9 @@ The implementation includes validation coverage for:
 - reconciliation validation
 - lifecycle and accounting scenario coverage
 
-Local snapshot record counts are not used as public evidence.
-
 ## A Look Inside
 
-The public repository is structured around the finance overview, invoice lifecycle, journal and ledger, and settlement and reconciliation surfaces described by the system model.
+Track finance operations through the system’s overview, journal, and settlement surfaces.
 
 ## Technology
 
@@ -58,7 +56,7 @@ The public repository is structured around the finance overview, invoice lifecyc
 - Next.js
 - React
 - SQLite for local transactional operation
-- Supabase / PostgreSQL integration boundaries
+- Supabase / PostgreSQL persistence path
 - SQL migrations
 - HeroUI
 - ECharts

@@ -9,17 +9,32 @@ stateDiagram-v2
   [*] --> Order
   Order --> Invoice: order accepted
   Invoice --> Collection: invoice issued
-  Collection --> MerchantDue: payment captured
+  Collection --> BankReconciliation: payment captured
+  BankReconciliation --> MerchantDue: clearing validated
   MerchantDue --> FeesVAT: finance values calculated
   FeesVAT --> Refunds: refund or reversal required
   FeesVAT --> Settlement: eligible for payout
   Refunds --> Settlement: refund state resolved
   Settlement --> Reconciliation: payout recorded
-  Reconciliation --> [*]: matched and reviewed
+  Reconciliation --> Reporting: matched and reviewed
   Reconciliation --> Reconciliation: exception review
+  Reporting --> [*]
+
+  state BankReconciliation {
+    [*] --> Pending
+    Pending --> Matched: bank evidence agrees
+    Pending --> Exception: difference or missing evidence
+    Exception --> Pending: corrected and rechecked
+    Matched --> [*]
+  }
+
+  state Reporting {
+    [*] --> Reviewed
+    Reviewed --> [*]
+  }
 ```
 
-The implementation uses explicit finance stages for customer sales invoice, payment gateway collection, bank reconciliation and merchant-borne gateway fee, and merchant settlement / net payout.
+The implementation uses explicit finance stages for customer sales invoice, payment gateway collection, bank reconciliation, merchant-borne gateway fee, and merchant settlement / net payout.
 
 ## Order and invoice
 
@@ -29,11 +44,15 @@ The order provides the operational context for the transaction. Invoice creation
 
 Collection records the payment gateway stage. The collection amount is the basis for clearing validation and downstream accounting events.
 
+## Bank reconciliation
+
+Bank reconciliation validates the captured clearing amount against bank movement and gateway-fee treatment before merchant due advances.
+
 ## Merchant due
 
 Merchant due represents the amount owed before settlement deductions and payout. It is calculated from the transaction and its finance effects rather than treated as an informal note.
 
-## Fees and VAT
+## Fees, commission, and VAT
 
 Commission, VAT, and gateway-fee effects are represented as finance events with explicit mapping into accounting records. Commission rules support configured scope and effective dates; shipping and VAT treatment follow the configured finance model.
 
@@ -72,6 +91,8 @@ sequenceDiagram
   A->>W: Process accounting event
   W->>J: Build balanced journal and linked ledger record
   J->>D: Persist accounting records
+  W->>R: Validate bank reconciliation
+  R->>D: Persist reconciliation result
   W->>S: Evaluate settlement eligibility
   S->>D: Record settlement state
   S->>R: Provide settlement movement for review

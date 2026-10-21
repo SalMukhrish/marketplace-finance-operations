@@ -2,7 +2,7 @@
 
 ## System boundary
 
-Marketplace Finance Operations is organized around an application layer, a finance operations layer, accounting records, settlement and reconciliation stages, and a relational data foundation. The public boundary is the finance workflow and its operational review surfaces.
+Marketplace Finance Operations is organized around an application layer, a finance operations layer, accounting records, settlement and reconciliation stages, and a relational data foundation. The system boundary covers the finance workflow and its operational review surfaces.
 
 The application layer provides overview, action center, order, invoice, collection, merchant due, fee, refund, settlement, reconciliation, journal, ledger, statement, reporting, and traceability views. The finance operations layer translates operational events into finance stages and accounting events.
 
@@ -12,7 +12,7 @@ The application layer provides overview, action center, order, invoice, collecti
 - **Finance workflow layer** — merchant due, fees and commission, VAT handling, refunds, settlement, and reconciliation.
 - **Accounting layer** — journal entries, journal lines, ledger entries, account statements, and invoice impact views.
 - **Review layer** — action center, reports, traceability, validation outcomes, and exception-oriented operational views.
-- **Data layer** — relational transactional storage, SQL migrations, and a local SQLite runtime with Supabase / PostgreSQL integration boundaries.
+- **Data layer** — relational transactional storage, SQL migrations, and a local SQLite runtime with Supabase / PostgreSQL persistence path.
 - **Integration boundary** — application APIs and database access used by finance operations and review views.
 
 ## Data and control flow
@@ -33,7 +33,8 @@ flowchart LR
   WF --> EVT[Accounting events]
   EVT --> J[Journal entries and lines]
   J --> L[Ledger and account statements]
-  WF --> MD[Merchant due and fees]
+  WF --> BR[Bank reconciliation]
+  BR --> MD[Merchant due and fees]
   WF --> RF[Refunds and reversals]
   WF --> ST[Settlement]
   ST --> RC[Reconciliation]
