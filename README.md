@@ -49,17 +49,7 @@ Local snapshot record counts are not used as public evidence.
 
 ## A Look Inside
 
-| Finance Overview | Invoice Lifecycle |
-|---|---|
-| ![Finance overview](assets/finance-overview.png)<br>Track finance stages, exceptions, and operational status. | ![Invoice lifecycle](assets/invoice-lifecycle.png)<br>Follow an invoice from collection through merchant due. |
-
-| Journal and Ledger |
-|---|
-| ![Journal and ledger](assets/journal-ledger.png)<br>Review balanced journal and ledger records with traceability. |
-
-| Settlement and Reconciliation |
-|---|
-| ![Settlement and reconciliation](assets/settlement-reconciliation.png)<br>Validate settlement and reconciliation before completion. |
+The public repository is structured around the finance overview, invoice lifecycle, journal and ledger, and settlement and reconciliation surfaces described by the system model.
 
 ## Technology
 
