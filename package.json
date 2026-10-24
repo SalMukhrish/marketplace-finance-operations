@@ -1,0 +1,18 @@
+{
+  "name": "marketplace-finance-operations",
+  "version": "1.0.0",
+  "private": true,
+  "license": "MIT",
+  "description": "Executable reference controls for marketplace finance operations.",
+  "type": "module",
+  "scripts": {
+    "build": "tsc -p tsconfig.build.json",
+    "demo": "npm run build --silent && node dist/examples/scenario.js",
+    "test": "npm run build --silent && node --test dist/test/finance-controls.test.js",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@types/node": "^22.10.0",
+    "typescript": "^5.7.2"
+  }
+}

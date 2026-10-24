@@ -74,5 +74,36 @@ The implementation includes validation coverage for:
 - HeroUI
 - ECharts
 
-© 2026 Saleh Mukhrish. All rights reserved.
+## Working Reference Implementation
 
+The [`src`](src) directory contains executable, runtime dependency-free finance-domain controls for balanced journal validation, refund limits, settlement eligibility, and collection reconciliation. Each control returns an explicit accepted or blocked outcome.
+
+## Run Locally
+
+```bash
+npm ci
+npm test
+npm run demo
+```
+
+## What the Code Demonstrates
+
+- [Journal balance and line validation](src/journal.ts)
+- [Remaining-refundable-amount validation](src/refund.ts)
+- [Settlement eligibility and blocking reasons](src/settlement.ts)
+- [Collection, bank, and gateway-fee reconciliation](src/reconciliation.ts)
+- [Deterministic accepted and blocked test cases](test/finance-controls.test.ts)
+
+## Reference Schema
+
+[`schema/reference-schema.sql`](schema/reference-schema.sql) is a simplified relational reference for the documented transaction, accounting, refund, settlement, and reconciliation model.
+
+## Scope and Boundary
+
+This repository contains a public reference implementation of selected marketplace-finance controls. It is not the complete production application and contains no customer credentials, proprietary production data, or production secrets.
+
+## License
+
+Source code in this repository is licensed under the [MIT License](LICENSE).
+
+Documentation, screenshots, diagrams, and other non-code assets are © 2026 Saleh Mukhrish. All rights reserved.
